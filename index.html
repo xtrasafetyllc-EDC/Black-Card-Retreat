@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Black Card Retreat™ | Where Luxury Meets The Outdoors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --black:      #070707;
+  --card:       #111111;
+  --card2:      #181818;
+  --gold:       #D6B46B;
+  --gold-light: #EDD494;
+  --gold-dark:  #A88A3D;
+  --purple:     #6B46FF;
+  --purple-glow:rgba(107,70,255,.45);
+  --purple-mid: rgba(107,70,255,.25);
+  --orange:     #D87C35;
+  --white:      #F5F1E8;
+  --muted:      #888;
+  --border:     rgba(255,255,255,.07);
+
+  /* placeholder colors */
+  --ph-cyan:    #00E5FF;
+  --ph-red:     #FF4D4D;
+  --ph-purple:  #BF7BFF;
+  --ph-green:   #00FF99;
+  --ph-gold:    #FFD700;
+  --ph-pink:    #FF66CC;
+  --ph-orange:  #FF8C42;
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+
+.container{width:min(1320px,92%);margin:0 auto;}
+section{padding:100px 0;}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1,h2,h3,h4,.display{
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing:2px;
+  line-height:1;
+}
+.eyebrow{
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:14px;
+  display:block;
+}
+.section-title{text-align:center;margin-bottom:60px;}
+.section-title h2{font-size:clamp(2.8rem,5vw,4.5rem);color:var(--gold);}
+.section-title p{color:var(--muted);margin-top:10px;font-size:1.05rem;}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-block;
+  padding:15px 32px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:.9rem;
+  letter-spacing:1px;
+  transition:transform .25s,box-shadow .25s,background .25s;
+  cursor:pointer;
+  border:none;
+}
+.btn:hover{transform:translateY(-3px);}
+.btn-gold{
+  background:var(--gold);
+  color:#000;
+  box-shadow:0 0 25px rgba(214,180,107,.35);
+}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 0 40px rgba(214,180,107,.55);}
+.btn-outline{
+  border:1.5px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+}
+.btn-outline:hover{background:var(--gold);color:#000;}
+.btn-purple{
+  background:var(--purple);
+  color:#fff;
+  box-shadow:0 0 25px var(--purple-glow);
+}
+.btn-purple:hover{box-shadow:0 0 45px rgba(107,70,255,.65);}
+.btn-dark{
+  background:#1a1a1a;
+  color:var(--gold);
+  border:1px solid var(--border);
+}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;}
+
+/* ============================================================
+   PLACEHOLDER LABELS
+   ============================================================ */
+.ph{font-weight:800;font-style:italic;}
+.ph-cyan  {color:var(--ph-cyan);}
+.ph-red   {color:var(--ph-red);}
+.ph-purple{color:var(--ph-purple);}
+.ph-green {color:var(--ph-green);}
+.ph-gold  {color:var(--ph-gold);}
+.ph-pink  {color:var(--ph-pink);}
+.ph-orange{color:var(--ph-orange);}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 0;
+  transition:background .4s,padding .4s;
+}
+nav.scrolled{
+  background:rgba(7,7,7,.95);
+  backdrop-filter:blur(12px);
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{height:52px;object-fit:contain;}
+.nav-logo-placeholder{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;
+  color:var(--gold);
+  letter-spacing:3px;
+}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{
+  font-size:.85rem;font-weight:500;letter-spacing:1px;
+  color:var(--muted);text-transform:uppercase;transition:color .2s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{margin-left:10px;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--white);transition:.3s;}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(to bottom,rgba(7,7,7,.3) 0%,rgba(7,7,7,.65) 60%,rgba(7,7,7,1) 100%),
+    url("its_avibe.png") center/cover no-repeat;
+}
+.hero::after{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,var(--purple-mid),transparent);
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:850px;
+  padding-top:80px;
+}
+.hero h1{
+  font-size:clamp(4.5rem,10vw,9rem);
+  line-height:.9;
+  color:var(--white);
+}
+.hero h1 .gold{color:var(--gold);}
+.hero h1 .glow{
+  color:var(--gold);
+  text-shadow:0 0 40px var(--purple-glow),0 0 80px var(--purple-glow);
+}
+.hero-sub{
+  margin:24px 0 0;
+  font-size:1.1rem;
+  font-weight:300;
+  color:rgba(245,241,232,.7);
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.hero-tag{
+  margin-top:10px;
+  font-size:1.25rem;
+  font-style:italic;
+  color:var(--gold-light);
+}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--muted);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;z-index:2;
+}
+.hero-scroll-line{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+.about-img-wrap{
+  position:relative;
+}
+.about-img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:20px;
+  background:#1a1a1a;
+}
+.about-img-placeholder{
+  width:100%;height:520px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#111 0%,#1a1a2e 100%);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;letter-spacing:2px;text-align:center;padding:20px;
+}
+.about-badge{
+  position:absolute;
+  bottom:-20px;right:-20px;
+  width:120px;height:120px;
+  border-radius:50%;
+  background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;
+  color:#000;
+  letter-spacing:2px;
+  line-height:1.2;
+  box-shadow:0 0 30px rgba(214,180,107,.4);
+}
+.about-text h2{font-size:clamp(3rem,5vw,5rem);color:var(--gold);margin-bottom:20px;}
+.about-text p{color:rgba(245,241,232,.75);margin-bottom:20px;font-size:1.05rem;}
+.about-stats{
+  display:flex;gap:40px;margin-top:35px;padding-top:35px;
+  border-top:1px solid var(--border);
+}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold);line-height:1;}
+.stat-label{font-size:.8rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+/* ============================================================
+   SIGNATURE SUITES
+   ============================================================ */
+.suites-section{
+  background:linear-gradient(180deg,var(--black) 0%,#0c0c1a 50%,var(--black) 100%);
+}
+.suites-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.suite-img{
+  height:580px;
+  border-radius:24px;
+  object-fit:cover;
+  background:#111;
+  box-shadow:0 0 60px var(--purple-glow),0 0 120px rgba(107,70,255,.2);
+}
+.suite-img-placeholder{
+  height:580px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#0f0f1f 0%,#1a1040 100%);
+  border:1px solid rgba(107,70,255,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:30px;
+  box-shadow:0 0 60px var(--purple-glow);
+}
+.suite-content h2{font-size:clamp(2.8rem,4vw,4.5rem);color:var(--gold);}
+.suite-tm{font-size:1rem;vertical-align:super;}
+.suite-tagline{
+  font-size:1rem;color:var(--muted);
+  letter-spacing:3px;text-transform:uppercase;margin-top:8px;
+}
+.suite-desc{color:rgba(245,241,232,.7);margin:24px 0;font-size:1.05rem;}
+.suite-features{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;
+}
+.feature-item{
+  display:flex;align-items:center;gap:10px;
+  color:rgba(245,241,232,.8);font-size:.9rem;
+}
+.feature-item::before{
+  content:'✦';color:var(--gold);flex-shrink:0;
+}
+
+/* ============================================================
+   EXPERIENCES
+   ============================================================ */
+.exp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+.exp-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.exp-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(214,180,107,.35);
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.exp-img{
+  height:220px;
+  background:#1a1a1a;
+  position:relative;
+  overflow:hidden;
+}
+.exp-img-placeholder{
+  height:220px;
+  background:linear-gradient(135deg,#111 0%,#1c1c1c 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;letter-spacing:2px;color:var(--muted);
+  text-align:center;padding:20px;
+}
+.exp-badge{
+  position:absolute;top:16px;right:16px;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  border:1px solid var(--border);
+  border-radius:50px;
+  padding:5px 14px;
+  font-size:.75rem;letter-spacing:2px;color:var(--gold);
+}
+.exp-body{padding:28px;}
+.exp-icon{font-size:2rem;margin-bottom:12px;}
+.exp-card h3{font-size:1.8rem;color:var(--gold);margin-bottom:8px;}
+.exp-card p{color:var(--muted);font-size:.9rem;}
+
+/* ============================================================
+   BUILD YOUR RETREAT
+   ============================================================ */
+.builder-section{
+  background:
+    linear-gradient(rgba(7,7,7,.9),rgba(7,7,7,.95)),
+    url("Build_Your_Retreat.png") center/cover fixed no-repeat;
+  position:relative;
+}
+.builder-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 0%,var(--purple-mid),transparent);
+  pointer-events:none;
+}
+.builder-section .container{position:relative;z-index:1;}
+
+.builder-layout{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:50px;
+  align-items:start;
+}
+.builder-steps{display:flex;flex-direction:column;gap:25px;}
+.builder-step{
+  background:rgba(17,17,17,.9);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px 30px;
+  backdrop-filter:blur(10px);
+}
+.step-header{
+  display:flex;align-items:center;gap:14px;margin-bottom:20px;
+}
+.step-num{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--gold);color:#000;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.step-header h3{font-size:1.6rem;color:var(--gold);}
+
+.builder-select{
+  width:100%;
+  padding:13px 16px;
+  background:#1a1a1a;
+  color:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.builder-select:focus{outline:none;border-color:var(--gold);}
+
+.radio-group,.check-group{
+  display:flex;flex-direction:column;gap:12px;
+}
+.radio-item,.check-item{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;
+  background:#1a1a1a;
+  border:1px solid var(--border);
+  border-radius:12px;
+  cursor:pointer;
+  transition:border-color .2s,background .2s;
+  user-select:none;
+}
+.radio-item:hover,.check-item:hover{border-color:rgba(214,180,107,.35);}
+.radio-item input,.check-item input{accent-color:var(--gold);width:18px;height:18px;flex-shrink:0;}
+.radio-item.selected,.check-item.selected{
+  border-color:var(--gold);
+  background:rgba(214,180,107,.08);
+}
+.item-label{flex:1;font-size:.9rem;}
+.item-price{font-weight:700;color:var(--gold);font-size:.9rem;white-space:nowrap;}
+
+.check-cats{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;}
+.check-cat-title{
+  font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin:16px 0 8px;grid-column:1/-1;
+}
+
+.add-ons-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+
+/* Summary card */
+.summary-card{
+  background:rgba(17,17,17,.95);
+  border:1px solid var(--gold-dark);
+  border-radius:22px;
+  padding:32px;
+  position:sticky;
+  top:120px;
+  backdrop-filter:blur(12px);
+}
+.summary-card h3{font-size:2rem;color:var(--gold);margin-bottom:6px;}
+.summary-sub{font-size:.8rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:24px;}
+.summary-line{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:.85rem;
+}
+.summary-line:last-of-type{border-bottom:none;}
+.summary-label{color:var(--muted);}
+.summary-val{color:var(--white);font-weight:600;}
+.summary-total{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin:20px 0;
+  padding:16px 0;
+  border-top:1px solid var(--gold-dark);
+  border-bottom:1px solid var(--gold-dark);
+}
+.summary-total-label{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold);}
+.summary-total-price{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold);}
+.summary-btns{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.summary-btns .btn{text-align:center;display:block;}
+.booking-note{
+  margin-top:16px;
+  font-size:.75rem;color:var(--muted);text-align:center;line-height:1.6;
+}
+
+/* ============================================================
+   WHAT'S INCLUDED
+   ============================================================ */
+.included-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.included-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px 24px;
+  text-align:center;
+  transition:border-color .3s;
+}
+.included-card:hover{border-color:rgba(214,180,107,.3);}
+.included-icon{font-size:2.2rem;margin-bottom:12px;}
+.included-card h4{font-size:1.2rem;color:var(--gold);margin-bottom:8px;}
+.included-card p{font-size:.85rem;color:var(--muted);}
+
+/* ============================================================
+   VILLAGE
+   ============================================================ */
+.village-section{
+  background:linear-gradient(180deg,var(--black) 0%,#0a0a12 50%,var(--black) 100%);
+}
+.village-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.village-text h2{font-size:clamp(3rem,4vw,5rem);color:var(--gold);}
+.village-text p{color:rgba(245,241,232,.7);margin:20px 0;font-size:1.05rem;}
+.village-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.village-item{
+  display:flex;align-items:center;gap:14px;
+  font-size:.95rem;color:rgba(245,241,232,.8);
+}
+.village-item::before{content:'◆';color:var(--purple);font-size:.7rem;}
+.village-img-placeholder{
+  height:500px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#0f0f1f 0%,#1a1040 100%);
+  border:1px solid rgba(107,70,255,.25);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:30px;
+}
+
+/* ============================================================
+   GOT RACKS
+   ============================================================ */
+.gotrack-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.gotrack-img-placeholder{
+  height:480px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#111 0%,#1c1c1c 100%);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:30px;
+}
+.gotrack-text h2{font-size:clamp(2.5rem,4vw,4.5rem);color:var(--gold);}
+.gotrack-text .tm{font-size:.85rem;vertical-align:super;}
+.gotrack-text p{color:rgba(245,241,232,.7);margin:16px 0;font-size:1.05rem;}
+.gotrack-builds{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;
+}
+.build-tag{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 16px;
+  font-size:.85rem;
+  color:rgba(245,241,232,.75);
+  text-align:center;
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+.events-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:25px;
+}
+.event-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.event-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.event-img-placeholder{
+  height:200px;
+  background:linear-gradient(135deg,#111 0%,#1c1c1c 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--muted);letter-spacing:2px;text-align:center;padding:20px;
+}
+.event-body{padding:24px;}
+.event-date{
+  font-size:.75rem;letter-spacing:3px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.event-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+.event-card h3{font-size:1.6rem;color:var(--white);margin-bottom:8px;}
+.event-card p{font-size:.85rem;color:var(--muted);margin-bottom:20px;}
+.event-spots{
+  font-size:.8rem;
+  color:var(--orange);
+  font-weight:600;
+  margin-bottom:16px;
+}
+.event-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.event-btns .btn{padding:10px 20px;font-size:.8rem;margin:0;}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto;
+  gap:16px;
+}
+.gallery-item{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:14px;
+  aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;letter-spacing:2px;color:var(--muted);
+  text-align:center;padding:16px;
+  transition:border-color .3s;
+}
+.gallery-item:hover{border-color:rgba(214,180,107,.3);}
+.gallery-item.wide{grid-column:span 2;}
+.gallery-item.tall{grid-row:span 2;}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials-section{
+  background:linear-gradient(180deg,var(--black) 0%,#0c0c1a 50%,var(--black) 100%);
+}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:25px;
+}
+.testi-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+  transition:border-color .3s;
+}
+.testi-card:hover{border-color:rgba(214,180,107,.25);}
+.stars{color:var(--gold);font-size:1.2rem;margin-bottom:16px;}
+.testi-card blockquote{
+  font-size:1rem;color:rgba(245,241,232,.8);
+  font-style:italic;line-height:1.7;margin-bottom:20px;
+}
+.testi-author{
+  display:flex;align-items:center;gap:12px;
+  padding-top:16px;border-top:1px solid var(--border);
+}
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000;
+  flex-shrink:0;
+}
+.testi-name{font-weight:700;font-size:.9rem;}
+.testi-sub{font-size:.8rem;color:var(--muted);}
+
+/* ============================================================
+   MEMBERSHIP
+   ============================================================ */
+.membership-section{
+  background:linear-gradient(135deg,#070707 0%,#0f0f22 50%,#070707 100%);
+  border-top:1px solid rgba(107,70,255,.2);
+  border-bottom:1px solid rgba(107,70,255,.2);
+}
+.membership-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;
+}
+.membership-text h2{font-size:clamp(3rem,5vw,5rem);color:var(--gold);}
+.membership-text p{color:rgba(245,241,232,.7);margin:20px 0 30px;font-size:1.05rem;}
+.membership-benefits{display:flex;flex-direction:column;gap:14px;}
+.benefit-item{
+  display:flex;align-items:center;gap:14px;
+  font-size:.95rem;color:rgba(245,241,232,.8);
+}
+.benefit-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(107,70,255,.2);
+  border:1px solid rgba(107,70,255,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.membership-card-visual{
+  background:linear-gradient(135deg,#0f0f22 0%,#1a1040 100%);
+  border:1px solid rgba(107,70,255,.4);
+  border-radius:24px;
+  padding:50px 40px;
+  text-align:center;
+  box-shadow:0 0 80px var(--purple-glow);
+}
+.card-icon{font-size:4rem;margin-bottom:20px;}
+.membership-card-visual h3{font-size:2.5rem;color:var(--gold);}
+.membership-card-visual p{color:var(--muted);margin:10px 0 30px;font-size:.9rem;}
+.price-tag{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--white);line-height:1;}
+.price-period{font-size:.9rem;color:var(--muted);margin-top:4px;}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list{max-width:800px;margin:0 auto;}
+.faq-item{
+  border-bottom:1px solid var(--border);
+  padding:24px 0;
+}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;
+  font-weight:600;font-size:1rem;
+  color:var(--white);
+}
+.faq-q:hover{color:var(--gold);}
+.faq-chevron{
+  font-size:1.4rem;color:var(--gold);
+  transition:transform .3s;flex-shrink:0;
+}
+.faq-item.open .faq-chevron{transform:rotate(45deg);}
+.faq-a{
+  display:none;
+  padding-top:16px;
+  color:rgba(245,241,232,.65);
+  font-size:.95rem;
+  line-height:1.7;
+}
+.faq-item.open .faq-a{display:block;}
+
+/* ============================================================
+   SOCIAL / INSTAGRAM
+   ============================================================ */
+.social-section{text-align:center;}
+.social-handle{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,5vw,5rem);
+  color:var(--gold);
+  display:block;
+  margin:20px 0;
+  letter-spacing:3px;
+}
+.social-hashtags{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:20px 0 40px;
+}
+.hashtag{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:50px;
+  padding:8px 20px;
+  font-size:.85rem;color:var(--muted);
+}
+.insta-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px;
+}
+.insta-tile{
+  aspect-ratio:1;
+  background:var(--card2);
+  border-radius:10px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:var(--muted);letter-spacing:1px;text-align:center;
+  transition:border-color .3s;
+}
+.insta-tile:hover{border-color:rgba(214,180,107,.3);}
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.cta-banner{
+  padding:120px 0;
+  text-align:center;
+  background:
+    linear-gradient(rgba(7,7,7,.88),rgba(7,7,7,.94)),
+    url("its_avibe.png") center/cover fixed no-repeat;
+  border-top:1px solid var(--border);
+}
+.cta-banner h2{font-size:clamp(3rem,7vw,7rem);color:var(--gold);margin-bottom:16px;}
+.cta-banner p{color:rgba(245,241,232,.6);font-size:1.1rem;margin-bottom:40px;font-style:italic;}
+.cta-banner .btn-row{justify-content:center;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  padding:60px 0 40px;
+  border-top:1px solid var(--border);
+}
+.footer-inner{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;
+}
+.footer-brand .nav-logo-placeholder{font-size:1.4rem;display:block;margin-bottom:16px;}
+.footer-brand p{color:var(--muted);font-size:.9rem;line-height:1.7;}
+.footer-col h4{font-size:1.2rem;color:var(--gold);margin-bottom:18px;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;}
+.footer-col li a{color:var(--muted);font-size:.9rem;transition:color .2s;}
+.footer-col li a:hover{color:var(--gold);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:30px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:.8rem;
+}
+.footer-bottom a{color:var(--muted);transition:color .2s;}
+.footer-bottom a:hover{color:var(--gold);}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1100px){
+  .builder-layout{grid-template-columns:1fr;}
+  .summary-card{position:static;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .included-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  .about-grid,.suites-grid,.village-grid,.gotrack-grid,.membership-inner{
+    grid-template-columns:1fr;
+  }
+  .exp-grid,.events-grid,.testi-grid{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .insta-grid{grid-template-columns:repeat(3,1fr);}
+  section{padding:70px 0;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:fixed;inset:0;
+    background:rgba(7,7,7,.98);
+    align-items:center;justify-content:center;gap:30px;z-index:99;
+  }
+  .nav-links.open a{font-size:1.4rem;}
+  .hamburger{display:flex;}
+  .exp-grid,.events-grid,.testi-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .insta-grid{grid-template-columns:repeat(2,1fr);}
+  .check-cats{grid-template-columns:1fr;}
+  .about-stats{flex-wrap:wrap;gap:24px;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+  .add-ons-grid{grid-template-columns:1fr;}
+  .suite-features{grid-template-columns:1fr;}
+  .gotrack-builds{grid-template-columns:1fr;}
+  .hero h1{font-size:clamp(3.5rem,15vw,6rem);}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <img src="Black_Card_Retreat_Logo.png" alt="The Black Card Retreat" class="nav-logo">
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#suites">Suites</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#builder">Build</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#builder" class="btn btn-gold btn-sm nav-cta" style="padding:10px 22px;font-size:.8rem;">Reserve Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- EVENT ANNOUNCEMENT BANNER -->
+<div style="background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));color:#000;text-align:center;padding:12px 20px;font-weight:700;font-size:.88rem;letter-spacing:1.5px;position:relative;z-index:99;">
+  🎟 NEXT EVENT: THE BLACK CARD RETREAT™ &nbsp;•&nbsp; FRI JULY 24 – MON JULY 27, 2026 &nbsp;•&nbsp; 21+ ONLY &nbsp;•&nbsp;
+  <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" style="color:#000;text-decoration:underline;font-weight:900;white-space:nowrap;">GET TICKETS ON EVENTBRITE →</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">California's Premier Luxury Outdoor Lifestyle Experience</span>
+      <h1>
+        THE BLACK CARD<br>
+        <span class="glow">RETREAT™</span>
+      </h1>
+      <p class="hero-sub">Luxury Glamping &nbsp;•&nbsp; Hip-Hop Culture &nbsp;•&nbsp; Elevated Outdoor Living</p>
+      <p class="hero-tag">"It's Not Just Camping. It's A Vibe."</p>
+      <div class="btn-row">
+        <a href="#builder" class="btn btn-gold">Build My Retreat</a>
+        <a href="#events"  class="btn btn-outline">Buy Event Tickets</a>
+        <a href="#suites"  class="btn btn-purple">View Suites</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    SCROLL
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="Black_Card_Retreat.png" alt="Black Card Retreat - Where Luxury Meets The Outdoors" class="about-img" style="width:100%;height:520px;object-fit:cover;border-radius:20px;">
+        <div class="about-badge">BLACK CARD<br>LIFESTYLE</div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">The Black Card Experience</span>
+        <h2>THIS ISN'T CAMPING.</h2>
+        <p>
+          The Black Card Retreat™ is California's premier luxury outdoor lifestyle experience — 
+          where curated glamping culture, hip-hop energy, and elevated hospitality collide under 
+          the stars.
+        </p>
+        <p>
+          We don't do ordinary. Every detail is intentional. Every moment is designed. 
+          Every retreat is an experience you'll be talking about for years.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">9+</div>
+            <div class="stat-label">California Destinations</div>
+          </div>
+          <div>
+            <div class="stat-num">6</div>
+            <div class="stat-label">Retreat Experiences</div>
+          </div>
+          <div>
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Concierge Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIGNATURE SUITES
+     ============================================================ -->
+<section class="suites-section" id="suites">
+  <div class="container">
+    <div class="suites-grid">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <img src="RV.png" alt="Black Card Signature Suite™ - Exterior" style="width:100%;height:280px;object-fit:cover;border-radius:20px;box-shadow:0 0 60px var(--purple-glow),0 0 120px rgba(107,70,255,.2);">
+        <img src="Kitchen.png" alt="Black Card Signature Suite™ - Interior Kitchen & Lounge" style="width:100%;height:280px;object-fit:cover;border-radius:20px;box-shadow:0 0 40px var(--purple-glow);">
+      </div>
+      <div class="suite-content">
+        <span class="eyebrow">Accommodations</span>
+        <h2>BLACK CARD SIGNATURE SUITES<span class="suite-tm">™</span></h2>
+        <p class="suite-tagline">Elevated Outdoor Living</p>
+        <p class="suite-desc">
+          The pinnacle of mobile luxury. Our Black Card Signature Suites™ are fully customized 
+          5th wheels featuring designer interiors, LED ambiance, entertainment systems, and 
+          private outdoor lounges — unlike anything you've ever experienced outdoors.
+        </p>
+        <div class="suite-features">
+          <div class="feature-item">Luxury Designer Interior</div>
+          <div class="feature-item">Premium Entertainment System</div>
+          <div class="feature-item">LED Mood Lighting</div>
+          <div class="feature-item">Private Outdoor Lounge</div>
+          <div class="feature-item">Full Kitchen & Island</div>
+          <div class="feature-item">Leather Theater Seating</div>
+          <div class="feature-item">Studio Setup Available</div>
+          <div class="feature-item">Climate Controlled</div>
+        </div>
+        <div class="btn-row">
+          <a href="#builder" class="btn btn-gold">Reserve a Suite</a>
+          <a href="#builder" class="btn btn-outline">Build My Package</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCES
+     ============================================================ -->
+<section id="experiences">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Premium Experiences</span>
+      <h2>CHOOSE YOUR VIBE</h2>
+      <p>Six exclusive retreat experiences, each crafted for a different energy</p>
+    </div>
+
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <img src="Kings_Retreat.png" alt="The King's Retreat" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">👑</div>
+          <h3>THE KING'S RETREAT</h3>
+          <p>Built for Men. Designed for Kings. A premium outdoor experience with luxury dock setup, curated activities, and an elite brotherhood atmosphere.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <img src="Couples_Retreat.png" alt="Couples Escape" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">❤️</div>
+          <h3>COUPLES ESCAPE</h3>
+          <p>Reconnect. Recharge. Rekindle. A luxury sunset experience built around intimacy, curated dining, and unforgettable outdoor moments for two.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <img src="Ladies_Luxe.png" alt="Ladies Luxe Retreat" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">💎</div>
+          <h3>LADIES LUXE RETREAT</h3>
+          <p>Luxury. Wellness. Sisterhood. A premium women's retreat experience with brunch, champagne, spa vibes, and an exclusive atmosphere.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <img src="It_s_a_Vibe.png" alt="It's A Vibe" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">🎵</div>
+          <h3>IT'S A VIBE</h3>
+          <p>Good Music. Good Energy. A premium festival-meets-glamping experience with live DJ sets, LED lighting, and a crowd that matches your frequency.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <img src="Survivor.png" alt="Survivor: Black Card Edition" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">🌲</div>
+          <h3>SURVIVOR: BLACK CARD EDITION</h3>
+          <p>Adventure Meets Luxury. Team challenges, nature excursions, and rugged outdoor experiences — all with Black Card luxury standards throughout.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <img src="Social_Escape.png" alt="The Social Escape" style="width:100%;height:220px;object-fit:cover;object-position:top;">
+        <div class="exp-body">
+          <div class="exp-icon">🔥</div>
+          <h3>THE SOCIAL ESCAPE</h3>
+          <p>Luxury Social Experiences. Fire lounges, networking under the stars, curated entertainment, and an elite social atmosphere that sets the standard.</p>
+          <div style="margin-top:18px;">
+            <a href="#builder" class="btn btn-outline" style="padding:10px 22px;font-size:.85rem;margin:0;">Build This Experience</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUILD YOUR RETREAT
+     ============================================================ -->
+<section class="builder-section" id="builder">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Custom Package Builder</span>
+      <h2>BUILD MY RETREAT™</h2>
+      <p>Select your destination, accommodation, activities &amp; add-ons. See your total instantly.</p>
+    </div>
+
+    <div class="builder-layout">
+      <!-- STEPS -->
+      <div class="builder-steps">
+
+        <!-- STEP 1: DESTINATION -->
+        <div class="builder-step">
+          <div class="step-header">
+            <div class="step-num">1</div>
+            <h3>SELECT DESTINATION</h3>
+          </div>
+          <select class="builder-select" id="destination">
+            <option value="0">— Choose a Destination —</option>
+            <option value="0">Yosemite Under The Lights™</option>
+            <option value="0">Lake Tahoe Elevation™</option>
+            <option value="0">Big Sur Coastal Luxe™</option>
+            <option value="0">Joshua Tree Neon Oasis™</option>
+            <option value="0">Malibu Sunset Club™</option>
+            <option value="0">San Diego Coastal Culture™</option>
+            <option value="0">Lake Camanche Weekend Series™</option>
+            <option value="0">Shasta Lake Escape™</option>
+            <option value="0">Sequoia Among Giants™</option>
+          </select>
+        </div>
+
+        <!-- STEP 2: ACCOMMODATION -->
+        <div class="builder-step">
+          <div class="step-header">
+            <div class="step-num">2</div>
+            <h3>SELECT ACCOMMODATIONS</h3>
+          </div>
+          <div class="radio-group" id="suiteGroup">
+            <label class="radio-item">
+              <input type="radio" name="suite" value="1299" data-label="Black Card Signature Suite™">
+              <span class="item-label">Black Card Signature Suite™ (5th Wheel)</span>
+              <span class="item-price">$1,299</span>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="suite" value="899" data-label="VIP Dome Suite">
+              <span class="item-label">VIP Dome Suite</span>
+              <span class="item-price">$899</span>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="suite" value="599" data-label="Luxury Glamping Tent">
+              <span class="item-label">Luxury Glamping Tent</span>
+              <span class="item-price">$599</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 3: ACTIVITIES -->
+        <div class="builder-step">
+          <div class="step-header">
+            <div class="step-num">3</div>
+            <h3>CHOOSE ACTIVITIES</h3>
+          </div>
+          <div class="check-cats">
+            <div class="check-cat-title">💧 Water Activities</div>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="149" data-label="Boat Experience">
+              <span class="item-label">Boat Experience</span><span class="item-price">$149</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="129" data-label="Jet Ski Rental">
+              <span class="item-label">Jet Ski Rental</span><span class="item-price">$129</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="99" data-label="Paddle Board">
+              <span class="item-label">Paddle Board Experience</span><span class="item-price">$99</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="149" data-label="Sunset Cruise">
+              <span class="item-label">Sunset Cruise</span><span class="item-price">$149</span>
+            </label>
+
+            <div class="check-cat-title">🌲 Adventure</div>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="99" data-label="Tour Nature">
+              <span class="item-label">Tour Nature</span><span class="item-price">$99</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="149" data-label="ATV Adventure">
+              <span class="item-label">ATV Adventure</span><span class="item-price">$149</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="89" data-label="Fishing Experience">
+              <span class="item-label">Fishing Experience</span><span class="item-price">$89</span>
+            </label>
+
+            <div class="check-cat-title">🎵 Entertainment</div>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="79" data-label="Studio Session">
+              <span class="item-label">Studio Session Rental</span><span class="item-price">$79</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="99" data-label="Show Access">
+              <span class="item-label">Show Access</span><span class="item-price">$99</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="149" data-label="VIP Lounge">
+              <span class="item-label">VIP Lounge Access</span><span class="item-price">$149</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="79" data-label="Outdoor Cinema">
+              <span class="item-label">Outdoor Cinema Night</span><span class="item-price">$79</span>
+            </label>
+
+            <div class="check-cat-title">✨ Luxury Experiences</div>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="199" data-label="Private Chef">
+              <span class="item-label">Private Chef Experience</span><span class="item-price">$199</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="199" data-label="Photoshoot">
+              <span class="item-label">Professional Photoshoot</span><span class="item-price">$199</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="activity" value="149" data-label="Couples Package">
+              <span class="item-label">Couples Package</span><span class="item-price">$149</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 4: ADD-ONS -->
+        <div class="builder-step">
+          <div class="step-header">
+            <div class="step-num">4</div>
+            <h3>ADD-ONS</h3>
+          </div>
+          <div class="add-ons-grid">
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="99" data-label="Transportation">
+              <span class="item-label">Transportation Package</span><span class="item-price">$99</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="79" data-label="Welcome Package">
+              <span class="item-label">Welcome Package</span><span class="item-price">$79</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="49" data-label="VIP Parking">
+              <span class="item-label">VIP Parking</span><span class="item-price">$49</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="79" data-label="Early Check-In">
+              <span class="item-label">Early Check-In</span><span class="item-price">$79</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="49" data-label="Airport Pickup">
+              <span class="item-label">Airport Pickup</span><span class="item-price">$49</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="addon" value="79" data-label="Merch Package">
+              <span class="item-label">Merchandise Package</span><span class="item-price">$79</span>
+            </label>
+          </div>
+        </div>
+
+      </div><!-- /builder-steps -->
+
+      <!-- SUMMARY CARD -->
+      <div class="summary-card">
+        <h3>YOUR EXPERIENCE</h3>
+        <p class="summary-sub">Package Summary</p>
+
+        <div id="summaryLines">
+          <div class="summary-line">
+            <span class="summary-label">Accommodation</span>
+            <span class="summary-val" id="sumSuite">—</span>
+          </div>
+          <div class="summary-line">
+            <span class="summary-label">Activities</span>
+            <span class="summary-val" id="sumActivities">None selected</span>
+          </div>
+          <div class="summary-line">
+            <span class="summary-label">Add-Ons</span>
+            <span class="summary-val" id="sumAddons">None selected</span>
+          </div>
+        </div>
+
+        <div class="summary-total">
+          <span class="summary-total-label">TOTAL</span>
+          <span class="summary-total-price" id="totalPrice">$0</span>
+        </div>
+
+        <div class="summary-btns">
+          <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" id="eventbriteBtn">
+            🎟 Buy on Eventbrite
+          </a>
+          <a href="#" class="btn btn-outline" id="ticketmasterBtn">
+            🎫 Buy on Ticketmaster
+          </a>
+          <a href="#" class="btn btn-purple" id="reserveBtn">
+            🏕 Reserve My Retreat
+          </a>
+        </div>
+
+        <p class="booking-note">
+          Eventbrite: <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" style="color:var(--ph-cyan);font-weight:800;">eventbrite.com/e/1992612599926</a><br>
+          Ticketmaster: <span class="ph ph-red">[INSERT TICKETMASTER LINK HERE]</span>
+        </p>
+      </div>
+
+    </div><!-- /builder-layout -->
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT'S INCLUDED
+     ============================================================ -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Every Retreat Includes</span>
+      <h2>WHAT'S INCLUDED</h2>
+      <p>Your base experience, covered</p>
+    </div>
+    <div class="included-grid">
+      <div class="included-card"><div class="included-icon">🏕</div><h4>Luxury Campsite</h4><p>Premium site setup with ambient lighting and lounge furniture</p></div>
+      <div class="included-card"><div class="included-icon">🛏</div><h4>Luxury Bedding</h4><p>Hotel-grade mattress and premium linens throughout</p></div>
+      <div class="included-card"><div class="included-icon">🍽</div><h4>Welcome Meal</h4><p>Curated welcome food experience upon arrival</p></div>
+      <div class="included-card"><div class="included-icon">🧊</div><h4>Ice & Water</h4><p>Stocked coolers and fresh water service daily</p></div>
+      <div class="included-card"><div class="included-icon">🪑</div><h4>Lounge Setup</h4><p>Premium outdoor seating, chairs, and shade structures</p></div>
+      <div class="included-card"><div class="included-icon">💡</div><h4>LED Lighting</h4><p>Signature ambiance lighting around your site</p></div>
+      <div class="included-card"><div class="included-icon">🎵</div><h4>DJ &amp; Music</h4><p>Curated soundtrack and group entertainment activities</p></div>
+      <div class="included-card"><div class="included-icon">🤝</div><h4>Concierge Staff</h4><p>On-site Black Card staff available 24/7</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BLACK CARD VILLAGE
+     ============================================================ -->
+<section class="village-section" id="village">
+  <div class="container">
+    <div class="village-grid">
+      <div class="village-text">
+        <span class="eyebrow">The Village Experience</span>
+        <h2>BLACK CARD VILLAGE™</h2>
+        <p>
+          More than a campground — a full luxury outdoor destination. The Black Card Village™ 
+          is a curated community of premium glamping sites, entertainment zones, dining areas, 
+          fire lounges, and LED pathways designed to feel like a boutique resort under the stars.
+        </p>
+        <div class="village-list">
+          <div class="village-item">Luxury Glamping Village Layout</div>
+          <div class="village-item">Festival LED Pathway Lighting</div>
+          <div class="village-item">Communal Fire Lounge Areas</div>
+          <div class="village-item">Premium Food &amp; Beverage Zone</div>
+          <div class="village-item">Outdoor Movie Theater Setup</div>
+          <div class="village-item">DJ Stage &amp; Music Area</div>
+        </div>
+        <div class="btn-row">
+          <a href="#builder" class="btn btn-gold">Build My Experience</a>
+        </div>
+      </div>
+      <img src="Tent.png" alt="Black Card Village™" style="width:100%;height:500px;object-fit:cover;border-radius:24px;border:1px solid rgba(107,70,255,.25);">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GOT RACKS CUSTOM
+     ============================================================ -->
+<section id="gotrack">
+  <div class="container">
+    <div class="gotrack-grid">
+      <img src="Food.png" alt="Got Racks Customs™" style="width:100%;height:480px;object-fit:cover;border-radius:24px;border:1px solid var(--border);">
+      <div class="gotrack-text">
+        <span class="eyebrow">Custom Builds</span>
+        <h2>GOT RACKS<br>CUSTOMS<span class="tm">™</span></h2>
+        <p>
+          The Black Card Signature Suites™ start with a Got Racks Custom build — 
+          fully converted 5th wheels transformed into mobile luxury hospitality suites. 
+          Every build is intentional. Every detail is elite.
+        </p>
+        <p>
+          From LED conversion packages to full custom interiors, Got Racks Customs™ 
+          is redefining what outdoor luxury looks like.
+        </p>
+        <div class="gotrack-builds">
+          <div class="build-tag">🎵 Music Studio Setup</div>
+          <div class="build-tag">💻 Mobile Office Suite</div>
+          <div class="build-tag">🎮 Gaming Lounge</div>
+          <div class="build-tag">🎬 Outdoor Theater</div>
+          <div class="build-tag">🛋 Luxury Patio</div>
+          <div class="build-tag">💡 Full LED Conversion</div>
+        </div>
+        <div class="btn-row">
+          <a href="#" class="btn btn-gold">
+            <span class="ph ph-cyan">[INSERT GOT RACKS LINK HERE]</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVENT CALENDAR — TABBED
+     ============================================================ -->
+<style>
+/* ---- Tab System ---- */
+.event-tabs{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;
+  margin-bottom:48px;
+}
+.event-tab{
+  padding:12px 28px;
+  border-radius:50px;
+  border:1.5px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+  font-family:'DM Sans',sans-serif;
+  font-size:.88rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;
+  transition:all .25s;
+}
+.event-tab:hover{border-color:rgba(214,180,107,.4);color:var(--white);}
+.event-tab.active{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#000;
+  box-shadow:0 0 20px rgba(214,180,107,.35);
+}
+.event-panel{display:none;}
+.event-panel.active{display:block;}
+
+/* ---- Badge variants ---- */
+.badge-live{background:rgba(0,230,100,.15);color:#00e664;border:1px solid rgba(0,230,100,.3);}
+.badge-soon{background:rgba(214,180,107,.12);color:var(--gold);border:1px solid rgba(214,180,107,.25);}
+.badge-day{background:rgba(107,70,255,.15);color:#b399ff;border:1px solid rgba(107,70,255,.3);}
+.badge-future{background:rgba(216,124,53,.12);color:var(--orange);border:1px solid rgba(216,124,53,.3);}
+
+.event-type-badge{
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:50px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+/* ---- Day trip card tweak ---- */
+.daytrip-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.daytrip-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.daytrip-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(107,70,255,.4);
+  box-shadow:0 16px 40px rgba(0,0,0,.5);
+}
+.daytrip-img{
+  height:170px;
+  object-fit:cover;
+  width:100%;
+}
+.daytrip-body{padding:22px;}
+.daytrip-body h3{font-size:1.5rem;color:var(--white);margin:8px 0 6px;}
+.daytrip-body p{font-size:.82rem;color:var(--muted);margin-bottom:14px;line-height:1.6;}
+.daytrip-meta{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;
+}
+.daytrip-tag{
+  background:#1a1a1a;
+  border:1px solid var(--border);
+  border-radius:50px;
+  padding:4px 12px;
+  font-size:.75rem;
+  color:rgba(245,241,232,.65);
+}
+@media(max-width:640px){
+  .daytrip-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<section id="events" style="background:linear-gradient(180deg,var(--black) 0%,#0a0a12 50%,var(--black) 100%)">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Upcoming Events</span>
+      <h2>EVENT CALENDAR</h2>
+      <p>Full retreats, future events, and weekday day trips — all Black Card level</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="event-tabs">
+      <button class="event-tab active" onclick="switchTab('retreats',this)">🏕 Full Retreats</button>
+      <button class="event-tab" onclick="switchTab('future',this)">📅 Future Events</button>
+      <button class="event-tab" onclick="switchTab('daytrips',this)">☀️ Day Trips</button>
+    </div>
+
+    <!-- ===== PANEL 1: FULL RETREATS ===== -->
+    <div class="event-panel active" id="panel-retreats">
+      <div class="events-grid">
+
+        <!-- LIVE EVENT -->
+        <div class="event-card">
+          <img src="Black_Card_Retreat.png" alt="The Black Card Retreat" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-live">🟢 Tickets Live</span>
+            <div class="event-date"><div class="event-dot"></div>Fri, July 24 – Mon, July 27, 2026</div>
+            <h3>THE BLACK CARD RETREAT™</h3>
+            <p>The flagship 3-night luxury escape — glamping, 5th-wheel suites, live DJs, boat experiences, bonfire lounges, premium food &amp; drinks, and West Coast energy. 21+ Only. Doors 10:30 AM.</p>
+            <div class="event-spots">⚡ Limited Capacity — Get Tickets Now</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Get Tickets — Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- KING'S RETREAT -->
+        <div class="event-card">
+          <img src="Kings_Retreat.png" alt="The King's Retreat" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-soon">👑 Coming Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div><span class="ph ph-gold">[INSERT DATE]</span></div>
+            <h3>THE KING'S RETREAT™</h3>
+            <p>Built for Men. Designed for Kings. A multi-day luxury lake experience with fishing, jet skis, boat excursions, BBQ cook-off, and brotherhood. Premium 5th-wheel suites included.</p>
+            <div class="event-spots">🔔 Notify Me When Live</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Eventbrite</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COUPLES ESCAPE -->
+        <div class="event-card">
+          <img src="Couples_Retreat.png" alt="Couples Escape" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-soon">❤️ Coming Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div><span class="ph ph-gold">[INSERT DATE]</span></div>
+            <h3>COUPLES ESCAPE™</h3>
+            <p>Reconnect. Recharge. Rekindle. A curated multi-night retreat with sunset cruises, luxury picnics, couples photoshoots, wine experiences, and outdoor movie nights by the water.</p>
+            <div class="event-spots">🔔 Notify Me When Live</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Eventbrite</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LADIES LUXE -->
+        <div class="event-card">
+          <img src="Ladies_Luxe.png" alt="Ladies Luxe Retreat" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-soon">💎 Coming Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div><span class="ph ph-gold">[INSERT DATE]</span></div>
+            <h3>LADIES LUXE RETREAT™</h3>
+            <p>Luxury. Wellness. Sisterhood. Yoga sessions, luxury lakeside brunch, professional photoshoots, wellness vendors, wine experiences, and an elevated atmosphere designed for women.</p>
+            <div class="event-spots">🔔 Notify Me When Live</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Eventbrite</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SURVIVOR -->
+        <div class="event-card">
+          <img src="Survivor.png" alt="Survivor: Black Card Edition" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-soon">🌲 Coming Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div><span class="ph ph-gold">[INSERT DATE]</span></div>
+            <h3>SURVIVOR: BLACK CARD EDITION™</h3>
+            <p>Outplay. Outlast. Out-Adventure. Team challenges, obstacle courses, scavenger hunts, Camp Olympics, and an awards ceremony — all wrapped in Black Card luxury accommodations.</p>
+            <div class="event-spots">🔔 Notify Me When Live</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Eventbrite</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL ESCAPE -->
+        <div class="event-card">
+          <img src="Social_Escape.png" alt="The Social Escape" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-soon">🔥 Coming Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div><span class="ph ph-gold">[INSERT DATE]</span></div>
+            <h3>THE SOCIAL ESCAPE™</h3>
+            <p>Luxury Experiences. Authentic Connections. Sunset mixers, group activities, speed networking, live DJs, and bonfire socials — the ultimate luxury social weekend. 21+ Only.</p>
+            <div class="event-spots">🔔 Notify Me When Live</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Eventbrite</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PANEL 2: FUTURE EVENTS ===== -->
+    <div class="event-panel" id="panel-future">
+      <div class="events-grid">
+
+        <div class="event-card">
+          <img src="It_s_a_Vibe.png" alt="It's A Vibe" style="width:100%;height:200px;object-fit:cover;object-position:top;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🎵 End of Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div>End of Summer 2026</div>
+            <h3>IT'S A VIBE™ — LAKE SERIES</h3>
+            <p>Good People. Good Music. Good Energy. A lakeside festival experience featuring live DJs, jet skis, boat parties, water games, and sunset vibes under the California sky.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="DJ.png" alt="Tahoe Summer Takeover" style="width:100%;height:200px;object-fit:cover;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🏔 End of Summer 2026</span>
+            <div class="event-date"><div class="event-dot"></div>End of Summer 2026</div>
+            <h3>TAHOE TAKEOVER™</h3>
+            <p>Mountain luxury meets waterfront adventure. Multi-day lake retreat with luxury accommodations, water sports, evening fire lounges, and signature Black Card hospitality at elevation.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="RV.png" alt="Neon Oasis Joshua Tree" style="width:100%;height:200px;object-fit:cover;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🌵 Winter 2026</span>
+            <div class="event-date"><div class="event-dot"></div>Winter 2026</div>
+            <h3>NEON OASIS: JOSHUA TREE™</h3>
+            <p>Desert luxury under the stars. LED light experiences, music &amp; culture, luxury 5th-wheel suites, and the most cinematic night sky in California. A full winter retreat experience.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="Tent.png" alt="Big Sur Coastal Luxe" style="width:100%;height:200px;object-fit:cover;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🌊 2027</span>
+            <div class="event-date"><div class="event-dot"></div>Spring 2027</div>
+            <h3>BIG SUR COASTAL LUXE™</h3>
+            <p>Ocean views, premium accommodations, and unforgettable coastal moments. A curated luxury glamping weekend along California's most breathtaking coastline.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="Food.png" alt="Malibu Sunset Club" style="width:100%;height:200px;object-fit:cover;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🌅 2027</span>
+            <div class="event-date"><div class="event-dot"></div>Summer 2027</div>
+            <h3>MALIBU SUNSET CLUB™</h3>
+            <p>Coastal elegance meets premium outdoor hospitality. A luxury Malibu retreat experience with waterfront dining, sunset cruises, live music, and signature Black Card experiences.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="Black_Card_Retreat.png" alt="San Diego Coastal Culture" style="width:100%;height:200px;object-fit:cover;object-position:center;">
+          <div class="event-body">
+            <span class="event-type-badge badge-future">🏖 2027</span>
+            <div class="event-date"><div class="event-dot"></div>Summer 2027</div>
+            <h3>SAN DIEGO COASTAL CULTURE™</h3>
+            <p>Luxury outdoor experiences with Southern California energy. Beach access, water sports, premium hospitality, and an exclusive social atmosphere in America's Finest City.</p>
+            <div class="event-spots">🔔 Announcements dropping soon</div>
+            <div class="event-btns">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-gold" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Follow on Eventbrite</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PANEL 3: DAY TRIPS ===== -->
+    <div class="event-panel" id="panel-daytrips">
+      <p style="text-align:center;color:var(--muted);margin-bottom:36px;font-size:.95rem;max-width:650px;margin-left:auto;margin-right:auto;">
+        Can't make a full retreat? Our weekday day trips bring the Black Card experience to a single day — same luxury level, same vibe, no overnight required. 21+ Only.
+      </p>
+      <div class="daytrip-grid">
+
+        <div class="daytrip-card">
+          <img src="DJ.png" class="daytrip-img" alt="Boat Day on the Lake">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">☀️ Day Trip</span>
+            <h3>BOAT DAY ON THE LAKE</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 6–8 Hours</span>
+              <span class="daytrip-tag">📍 Lake Natoma / Camanche</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A full day on the water — luxury boat rental, jet skis, paddleboards, and a floating lounge setup with premium food and drinks. Black Card energy, no overnight needed.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Couples_Retreat.png" class="daytrip-img" alt="Sunset Picnic Day Trip" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">🌅 Day Trip</span>
+            <h3>SUNSET PICNIC EXPERIENCE</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 4–6 Hours</span>
+              <span class="daytrip-tag">📍 Lakeside / Waterfront</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A curated lakeside luxury picnic at golden hour. Premium charcuterie, wine, candles, lounge pillows, and a professional photoshoot — perfect for couples or intimate groups.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="It_s_a_Vibe.png" class="daytrip-img" alt="It's A Vibe Day Party" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">🎵 Day Trip</span>
+            <h3>IT'S A VIBE — DAY PARTY</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 5–7 Hours</span>
+              <span class="daytrip-tag">📍 Lakeside / Outdoor Venue</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A daytime music and social event with a live DJ, luxury lounge setup, food and drinks, water access, and the signature Black Card atmosphere. No overnight. All vibe.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Ladies_Luxe.png" class="daytrip-img" alt="Ladies Luxe Day Brunch" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">💎 Day Trip</span>
+            <h3>LADIES LUXE BRUNCH DAY</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 4–5 Hours</span>
+              <span class="daytrip-tag">📍 Lakeside / Outdoor Venue</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>An elevated outdoor brunch experience for women — yoga, mimosas, luxury table setup, wellness pop-ups, photoshoots, and sisterhood energy. A full luxury afternoon, no retreat required.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Kings_Retreat.png" class="daytrip-img" alt="King's Day on the Water" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">👑 Day Trip</span>
+            <h3>KING'S DAY ON THE WATER</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 6–8 Hours</span>
+              <span class="daytrip-tag">📍 Lake / Dock</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A full men's day experience — fishing, jet skis, boat excursions, BBQ, and brotherhood on the water. Premium beverages, great energy, and a no-limits atmosphere all day.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Social_Escape.png" class="daytrip-img" alt="Social Bonfire Mixer" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">🔥 Day Trip</span>
+            <h3>SOCIAL BONFIRE MIXER</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 4–6 Hours</span>
+              <span class="daytrip-tag">📍 Lakeside Fire Lounge</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>An intimate outdoor social gathering with a fire lounge, string lights, live DJ set, speed networking, curated drinks, and authentic connections at golden hour. No overnight needed.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Survivor.png" class="daytrip-img" alt="Survivor Challenge Day" style="object-position:top;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">🌲 Day Trip</span>
+            <h3>SURVIVOR CHALLENGE DAY</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 5–7 Hours</span>
+              <span class="daytrip-tag">📍 Forest / Nature Trail</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A single-day outdoor challenge experience with team competitions, scavenger hunts, obstacle courses, and Camp Olympics. Ends with a luxury awards BBQ. No tent required.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="daytrip-card">
+          <img src="Food.png" class="daytrip-img" alt="Got Racks Lakeside Feast" style="object-cover;">
+          <div class="daytrip-body">
+            <span class="event-type-badge badge-day">🍽 Day Trip</span>
+            <h3>LAKESIDE LUXURY FEAST</h3>
+            <div class="daytrip-meta">
+              <span class="daytrip-tag">⏱ 3–5 Hours</span>
+              <span class="daytrip-tag">📍 Waterfront / Got Racks Setup</span>
+              <span class="daytrip-tag">Weekdays</span>
+            </div>
+            <p>A premium outdoor dining experience featuring a Got Racks Customs™ catering setup, curated multi-course meal, waterfront lounge seating, live music, and luxury table service under the trees.</p>
+            <div class="event-btns" style="margin-top:0;">
+              <a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank" class="btn btn-purple" style="padding:10px 20px;font-size:.82rem;margin:0;">🎟 Book This Trip</a>
+              <a href="#builder" class="btn btn-outline" style="padding:10px 20px;font-size:.82rem;margin:0;">Build Package</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function switchTab(panelId, btn){
+  document.querySelectorAll('.event-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.event-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+panelId).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">The Experience</span>
+      <h2>GALLERY</h2>
+      <p>A preview of the Black Card lifestyle</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item wide tall" style="padding:0;overflow:hidden;"><img src="Black_Card_Retreat.png" alt="Black Card Retreat" style="width:100%;height:100%;object-fit:cover;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="RV.png" alt="Signature Suite" style="width:100%;height:100%;object-fit:cover;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="It_s_a_Vibe.png" alt="It's A Vibe" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="Couples_Retreat.png" alt="Couples Escape" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="Kings_Retreat.png" alt="King's Retreat" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="Black_Card_Retreat.png" alt="Night Setup" style="width:100%;height:100%;object-fit:cover;border-radius:14px;"></div>
+      <div class="gallery-item" style="padding:0;overflow:hidden;"><img src="Kitchen.png" alt="Interior Suite" style="width:100%;height:100%;object-fit:cover;border-radius:14px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Guest Experiences</span>
+      <h2>WHAT THEY'RE SAYING</h2>
+      <p>Real guests. Real experiences. Real luxury.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "<span class="ph ph-green">[INSERT REAL TESTIMONIAL HERE]</span>"
+        </blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name"><span class="ph ph-gold">[INSERT GUEST NAME]</span></div>
+            <div class="testi-sub"><span class="ph ph-gold">[INSERT RETREAT ATTENDED]</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "<span class="ph ph-green">[INSERT REAL TESTIMONIAL HERE]</span>"
+        </blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">B</div>
+          <div>
+            <div class="testi-name"><span class="ph ph-gold">[INSERT GUEST NAME]</span></div>
+            <div class="testi-sub"><span class="ph ph-gold">[INSERT RETREAT ATTENDED]</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "<span class="ph ph-green">[INSERT REAL TESTIMONIAL HERE]</span>"
+        </blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name"><span class="ph ph-gold">[INSERT GUEST NAME]</span></div>
+            <div class="testi-sub"><span class="ph ph-gold">[INSERT RETREAT ATTENDED]</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEMBERSHIP
+     ============================================================ -->
+<section class="membership-section" id="membership">
+  <div class="container">
+    <div class="membership-inner">
+      <div class="membership-text">
+        <span class="eyebrow">Exclusive Access</span>
+        <h2>BLACK CARD SOCIETY™</h2>
+        <p>
+          Priority access. VIP upgrades. Early event drops. Exclusive merch. 
+          The Black Card Society™ membership puts you at the front of every experience.
+        </p>
+        <div class="membership-benefits">
+          <div class="benefit-item"><div class="benefit-icon">🔑</div>Priority Retreat Booking</div>
+          <div class="benefit-item"><div class="benefit-icon">💰</div>Member Discounts &amp; Deals</div>
+          <div class="benefit-item"><div class="benefit-icon">⬆️</div>VIP Upgrade Opportunities</div>
+          <div class="benefit-item"><div class="benefit-icon">📣</div>Early Event Access &amp; Drops</div>
+          <div class="benefit-item"><div class="benefit-icon">👕</div>Exclusive Merchandise Access</div>
+          <div class="benefit-item"><div class="benefit-icon">🤝</div>Black Card Community Network</div>
+        </div>
+        <div class="btn-row">
+          <a href="#" class="btn btn-gold">Join The Society</a>
+        </div>
+      </div>
+      <div class="membership-card-visual">
+        <div class="card-icon">🃏</div>
+        <h3>BLACK CARD SOCIETY™</h3>
+        <p>Annual Membership</p>
+        <div class="price-tag"><span class="ph ph-gold">[INSERT MEMBERSHIP PRICE]</span></div>
+        <div class="price-period">per year</div>
+        <div class="btn-row" style="justify-content:center;margin-top:30px;">
+          <a href="#" class="btn btn-gold">Join Now</a>
+        </div>
+        <p style="color:var(--muted);font-size:.8rem;margin-top:16px;">
+          <span class="ph ph-cyan">[INSERT MEMBERSHIP SIGNUP LINK HERE]</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Common Questions</span>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">Is food included in the retreat? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">A welcome meal is included with every retreat. Additional food and beverage options, including a Private Chef Experience, are available as add-ons in the Build My Retreat™ package builder.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is the age requirement? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">The Black Card Retreat™ is a 21+ experience. Valid ID is required at check-in.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What payment methods are accepted? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">
+          <span class="ph ph-cyan">[INSERT PAYMENT DETAILS HERE]</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens if there is bad weather? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">
+          <span class="ph ph-cyan">[INSERT WEATHER / CANCELLATION POLICY HERE]</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I need to bring camping gear? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">No. Everything is provided. Your retreat is fully set up upon arrival — bedding, lighting, lounge furniture, and all essentials. Just bring yourself and your vibe.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I book for a group or corporate retreat? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">
+          Yes. Group bookings and corporate retreat packages are available. Contact us directly at <span class="ph ph-gold">[INSERT BUSINESS EMAIL HERE]</span> for group pricing and availability.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is your refund and cancellation policy? <span class="faq-chevron">+</span></div>
+        <div class="faq-a">Refunds are available up to 14 days before the event. After that, all sales are final. For questions, contact the organizer directly through Eventbrite.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSTAGRAM / SOCIAL
+     ============================================================ -->
+<section class="social-section" id="social">
+  <div class="container">
+    <span class="eyebrow">Follow The Movement</span>
+    <a href="https://instagram.com/theblackcardretreat" target="_blank" class="social-handle">@theblackcardretreat</a>
+    <div class="social-hashtags">
+      <span class="hashtag">#TheBlackCardRetreat</span>
+      <span class="hashtag">#WhereLuxuryMeetsTheOutdoors</span>
+      <span class="hashtag">#BuildYourRetreat</span>
+      <span class="hashtag">#BlackCardLifestyle</span>
+      <span class="hashtag">#ItsAVibe</span>
+    </div>
+    <div class="insta-grid">
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="Social_Escape.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:10px;"></div>
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="Ladies_Luxe.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:10px;"></div>
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="Survivor.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:10px;"></div>
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="its_avibe.png" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="Black_Card_Retreat.png" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+      <div class="insta-tile" style="padding:0;overflow:hidden;"><img src="Couples_Retreat.png" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+    </div>
+    <p style="color:var(--muted);margin-top:20px;font-size:.85rem;">
+      Instagram Feed: <span class="ph ph-pink">[INSERT INSTAGRAM EMBED CODE HERE]</span><br>
+      TikTok: <span class="ph ph-pink">[INSERT TIKTOK LINK HERE]</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="container">
+    <span class="eyebrow">Ready?</span>
+    <h2>THIS ISN'T JUST A RETREAT.<br>IT'S A MOVEMENT.</h2>
+    <p>"Where Luxury Meets The Outdoors."</p>
+    <div class="btn-row">
+      <a href="#builder" class="btn btn-gold">Build My Retreat</a>
+      <a href="#events"  class="btn btn-outline">Buy Event Tickets</a>
+      <a href="#suites"  class="btn btn-purple">Book A Suite</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="Black_Card_Retreat_Logo.png" alt="The Black Card Retreat" style="height:70px;margin-bottom:16px;">
+        <p>California's premier luxury outdoor lifestyle experience. Where Luxury Meets The Outdoors.</p>
+        <p style="margin-top:14px;color:var(--muted);font-size:.85rem;">
+          📞 <span class="ph ph-gold">[INSERT BUSINESS PHONE HERE]</span><br>
+          ✉️ <span class="ph ph-gold">[INSERT BUSINESS EMAIL HERE]</span>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Experience</h4>
+        <ul>
+          <li><a href="#suites">Signature Suites™</a></li>
+          <li><a href="#experiences">Retreat Experiences</a></li>
+          <li><a href="#builder">Build My Retreat</a></li>
+          <li><a href="#village">Black Card Village™</a></li>
+          <li><a href="#events">Event Calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Book</h4>
+        <ul>
+          <li><a href="https://www.eventbrite.com/e/1992612599926?aff=oddtdtcreator" target="_blank">🎟 Eventbrite</a></li>
+          <li><a href="#">Ticketmaster <span class="ph ph-red">[LINK]</span></a></li>
+          <li><a href="#membership">Black Card Society™</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://instagram.com/theblackcardretreat" target="_blank">Instagram</a></li>
+          <li><a href="#">TikTok <span class="ph ph-pink">[LINK]</span></a></li>
+          <li><a href="#">Got Racks Customs™ <span class="ph ph-orange">[LINK]</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Black Card Retreat™. All Rights Reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ---- NAV scroll ---- */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ---- Hamburger ---- */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+/* ---- Package Builder ---- */
+function calcTotal() {
+  let total = 0;
+  let suiteLabel = '—';
+  let actCount = 0;
+  let addonCount = 0;
+
+  // Suite
+  const suiteRadio = document.querySelector('input[name="suite"]:checked');
+  if (suiteRadio) {
+    total += parseInt(suiteRadio.value);
+    suiteLabel = suiteRadio.dataset.label + ' — $' + parseInt(suiteRadio.value).toLocaleString();
+  }
+
+  // Activities
+  document.querySelectorAll('.activity:checked').forEach(cb => {
+    total += parseInt(cb.value);
+    actCount++;
+  });
+
+  // Add-ons
+  document.querySelectorAll('.addon:checked').forEach(cb => {
+    total += parseInt(cb.value);
+    addonCount++;
+  });
+
+  // Update summary
+  document.getElementById('sumSuite').textContent     = suiteLabel;
+  document.getElementById('sumActivities').textContent = actCount > 0 ? actCount + ' selected' : 'None selected';
+  document.getElementById('sumAddons').textContent     = addonCount > 0 ? addonCount + ' selected' : 'None selected';
+  document.getElementById('totalPrice').textContent   = '$' + total.toLocaleString();
+}
+
+// Radio selected state
+document.querySelectorAll('.radio-item input').forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.radio-item').forEach(r => r.classList.remove('selected'));
+    if (radio.checked) radio.closest('.radio-item').classList.add('selected');
+    calcTotal();
+  });
+});
+
+// Checkbox selected state
+document.querySelectorAll('.check-item input').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('.check-item').classList.toggle('selected', cb.checked);
+    calcTotal();
+  });
+});
+
+/* ---- FAQ ---- */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ---- Smooth scroll for anchor links ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
